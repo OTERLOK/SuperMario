@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="assets">
+      <UniqueIdentifier>{3bad533b-69da-4bce-9c3f-aa350699dcbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\sprites">
+      <UniqueIdentifier>{83382ad4-f38f-4e33-a36e-9fd1d1e3ac09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\sprites\Blocks">
+      <UniqueIdentifier>{06029474-8a3b-46ea-a805-3f4c3294a0ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\sprites\Characters">
+      <UniqueIdentifier>{b51a0972-db11-496f-9df2-1f347209eaec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\sprites\Icons">
+      <UniqueIdentifier>{e1a7a9dc-c636-4c14-82de-64f1bb5a41b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\Data">
+      <UniqueIdentifier>{b6959d60-cef0-409e-b9fc-3efa3c24bbd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\Data\MenuFondo">
+      <UniqueIdentifier>{aca8f9c6-394b-42e2-9c3f-098838d9ca5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\Fuente">
+      <UniqueIdentifier>{a67cd467-2fee-48d8-a1cc-cf52032508da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\Sonido">
+      <UniqueIdentifier>{db337731-ae77-44d6-9a21-8afb722a7312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\Sonido\Efectos">
+      <UniqueIdentifier>{129fa5b8-61f7-4e79-a91c-1a99a0fc77e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\Sonido\Musica">
+      <UniqueIdentifier>{e9e22c30-17eb-40bd-94f0-8db9279b9e95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\Data\Mundo1-1">
+      <UniqueIdentifier>{da1bc5be-85b1-44a8-a06a-ae0ddd54f132}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\Data\Mundo1-2">
+      <UniqueIdentifier>{4a4ca65d-0414-4dbc-87db-975372821b5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\Data\Mundo1-3">
+      <UniqueIdentifier>{dff5a8f4-bfe4-4f55-87da-e4cc0f113435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\Data\Mundo1-4">
+      <UniqueIdentifier>{f52355e4-e9e1-4a75-92d8-97231ae1995a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\..\..\..\Desktop\mario\assets\fonts\press-start-2p.ttf">
+      <Filter>assets\Fuente</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Desktop\mario\assets\sprites\icons\logo.png">
+      <Filter>assets\sprites\Icons</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\mario\assets\sprites\icons\optionsbackground.png">
+      <Filter>assets\sprites\Icons</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\mario\assets\sprites\icons\optionsinfobackground.png">
+      <Filter>assets\sprites\Icons</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\mario\assets\sprites\icons\windowicon.png">
+      <Filter>assets\sprites\Icons</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\mario\assets\sprites\characters\EnemySpriteSheet.png">
+      <Filter>assets\sprites\Characters</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\mario\assets\sprites\blocks\BlockTileSheet.png">
+      <Filter>assets\sprites\Blocks</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\mario\assets\sprites\characters\PlayerSpriteSheet.png">
+      <Filter>assets\sprites\Characters</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Desktop\mario\assets\sprites\blocks\IrregularReferences.blockmap">
+      <Filter>assets\sprites\Blocks</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\MenuBackground\MenuBackground_Background.csv">
+      <Filter>assets\Data\MenuFondo</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-1\World1-1.levelproperties">
+      <Filter>assets\Data\Mundo1-1</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-1\World1-1_Above_Foreground.csv">
+      <Filter>assets\Data\Mundo1-1</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-1\World1-1_Background.csv">
+      <Filter>assets\Data\Mundo1-1</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-1\World1-1_Collectibles.csv">
+      <Filter>assets\Data\Mundo1-1</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-1\World1-1_Enemies.csv">
+      <Filter>assets\Data\Mundo1-1</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-1\World1-1_Foreground.csv">
+      <Filter>assets\Data\Mundo1-1</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-1\World1-1_Underground.csv">
+      <Filter>assets\Data\Mundo1-1</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-2\World1-2.levelproperties">
+      <Filter>assets\Data\Mundo1-2</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-2\World1-2_Above_Foreground.csv">
+      <Filter>assets\Data\Mundo1-2</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-2\World1-2_Background.csv">
+      <Filter>assets\Data\Mundo1-2</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-2\World1-2_Collectibles.csv">
+      <Filter>assets\Data\Mundo1-2</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-2\World1-2_Enemies.csv">
+      <Filter>assets\Data\Mundo1-2</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-2\World1-2_Foreground.csv">
+      <Filter>assets\Data\Mundo1-2</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-2\World1-2_Underground.csv">
+      <Filter>assets\Data\Mundo1-2</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-3\World1-3.levelproperties">
+      <Filter>assets\Data\Mundo1-3</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-3\World1-3_Above_Foreground.csv">
+      <Filter>assets\Data\Mundo1-3</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-3\World1-3_Background.csv">
+      <Filter>assets\Data\Mundo1-3</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-3\World1-3_Collectibles.csv">
+      <Filter>assets\Data\Mundo1-3</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-3\World1-3_Enemies.csv">
+      <Filter>assets\Data\Mundo1-3</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-3\World1-3_Foreground.csv">
+      <Filter>assets\Data\Mundo1-3</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-3\World1-3_Underground.csv">
+      <Filter>assets\Data\Mundo1-3</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-4\World1-4.levelproperties">
+      <Filter>assets\Data\Mundo1-4</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-4\World1-4_Above_Foreground.csv">
+      <Filter>assets\Data\Mundo1-4</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-4\World1-4_Background.csv">
+      <Filter>assets\Data\Mundo1-4</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-4\World1-4_Collectibles.csv">
+      <Filter>assets\Data\Mundo1-4</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-4\World1-4_Enemies.csv">
+      <Filter>assets\Data\Mundo1-4</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-4\World1-4_Foreground.csv">
+      <Filter>assets\Data\Mundo1-4</Filter>
+    </None>
+    <None Include="..\..\..\..\Desktop\mario\assets\data\World1-4\World1-4_Underground.csv">
+      <Filter>assets\Data\Mundo1-4</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\blockbreak.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\blockhit.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\bowserfall.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\bowserfire.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\cannonfire.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\castleclear.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\coin.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\death.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\fireball.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\flagraise.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\gameover.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\jump.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\kick.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\oneup.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\pause.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\pipe.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\powerupappear.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\powerupcollect.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\shrink.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\stomp.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\effects\timertick.wav">
+      <Filter>assets\Sonido\Efectos</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\music\castle.wav">
+      <Filter>assets\Sonido\Musica</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\music\gamewon.wav">
+      <Filter>assets\Sonido\Musica</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\music\overworld.wav">
+      <Filter>assets\Sonido\Musica</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\music\superstar.wav">
+      <Filter>assets\Sonido\Musica</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\music\underground.wav">
+      <Filter>assets\Sonido\Musica</Filter>
+    </Media>
+    <Media Include="..\..\..\..\Desktop\mario\assets\sounds\music\underwater.wav">
+      <Filter>assets\Sonido\Musica</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Block.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Coin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mushroom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Goomba.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyLogic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Block.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Coin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mushroom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Goomba.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyLogic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
