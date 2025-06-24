@@ -3,7 +3,7 @@
 
 #define GOOMBA_FRAME_WIDTH 16
 #define GOOMBA_FRAME_HEIGHT 16
-#define GOOMBA_SCALE 3
+#define GOOMBA_SCALE 2
 
 void Goomba::Init(float x, float y) {
     texture = LoadTexture("C:/Users/OTERLOK/Desktop/mario/assets/sprites/characters/overworld/goomba.png");

@@ -1,4 +1,4 @@
-#ifndef AUDIOMANAGER_H
+﻿#ifndef AUDIOMANAGER_H
 #define AUDIOMANAGER_H
 
 #include "raylib.h"
@@ -18,6 +18,8 @@ void PlayPowerupAppearSound();
 void PlayPowerupCollectSound();
 void PlayJumpSound();
 void PlayDeathSound();
+void PlayKickSound(); // ✅ nueva función
+
 
 void SetMusicState(GameState state);
 void UpdateMusic();

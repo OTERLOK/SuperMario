@@ -6,7 +6,7 @@
 
 #define MARIO_FRAME_WIDTH 18
 #define MARIO_FRAME_HEIGHT 16
-#define MARIO_SCALE 3
+#define MARIO_SCALE 2
 
 void Player::LoadAssets() {
     texture = LoadTexture("C:/Users/OTERLOK/Desktop/mario/assets/sprites/characters/mario.png");

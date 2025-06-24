@@ -95,6 +95,8 @@ void Game::Update(float dt) {
                     player.rect.y + player.rect.height <= g.rect.y + 10) {
                     player.velocity.y = -300;
                     g.active = false;
+                    PlayKickSound();
+
                 }
                 else {
                     if (player.isBig) player.isBig = false;
