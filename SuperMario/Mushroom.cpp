@@ -1,4 +1,25 @@
-#include "mushroom.h"
+﻿#include "mushroom.h"
+
+Texture2D Mushroom::texture = {};
+bool Mushroom::loaded = false;
+
+void Mushroom::LoadSprite() {
+    if (!loaded) {
+        texture = LoadTexture("C:/Users/OTERLOK/Desktop/mario/assets/sprites/collectibles/super-mushroom.png");
+        loaded = true;
+
+        if (texture.id == 0) {
+            TraceLog(LOG_ERROR, "No se pudo cargar la textura del hongo.");
+        }
+    }
+}
+
+void Mushroom::UnloadSprite() {
+    if (loaded) {
+        UnloadTexture(texture);
+        loaded = false;
+    }
+}
 
 void Mushroom::Init(float x, float y) {
     rect = { x, y, 28, 28 };
@@ -6,6 +27,8 @@ void Mushroom::Init(float x, float y) {
     active = true;
     emerging = true;
     riseDistance = 0.0f;
+
+    LoadSprite(); // ✅ se asegura de que la textura esté cargada
 }
 
 void Mushroom::Update(float dt, const Rectangle& ground) {
@@ -31,7 +54,19 @@ void Mushroom::Update(float dt, const Rectangle& ground) {
 }
 
 void Mushroom::Draw() {
-    if (active) {
-        DrawRectangleRec(rect, RED);
+    if (!active) return;
+
+    if (loaded) {
+        DrawTexturePro(
+            texture,
+            { 0, 0, (float)texture.width, (float)texture.height },
+            rect,
+            { 0, 0 },
+            0.0f,
+            WHITE
+        );
+    }
+    else {
+        DrawRectangleRec(rect, RED); // fallback visual
     }
 }
