@@ -1,21 +1,42 @@
 ﻿#ifndef PLAYER_H
 #define PLAYER_H
-#include "audioManager.h"
+
 #include "raylib.h"
 
 class Player {
 public:
     Rectangle rect;
     Vector2 velocity;
-    bool isOnGround;
-    bool isBig;
+    Vector2 acceleration;
 
-    void Init(float x, float y, float w = 32, float h = 32);
-    void SpawnSobre(const Rectangle& suelo, int screenWidth);
-    void Update(float dt, const Rectangle& ground, float gravity, float jumpForce, float moveSpeed);
-    void Grow();
-    void Shrink();
+    bool isBig;
+    bool onGround;
+
+    void LoadAssets();
+    void SpawnSobre(Rectangle ground, int screenWidth);
+    void Update(float dt, Rectangle ground);
     void Draw();
+    void Grow();
+
+private:
+    Texture2D texture;
+    int frame;
+    float frameTime;
+    float frameTimer;
+    bool facingRight;
+
+    // Físicas
+    float gravity;
+    float jumpForce;
+    float moveSpeed;
+    float deceleration;
+    float maxFallSpeed;
+
+    // Salto variable
+    bool jumpHeld;
+    float jumpCutFactor;
+
+    void UpdateAnimation(float dt);
 };
 
 #endif

@@ -8,7 +8,6 @@ Game::Game() {
 
 void Game::Init() {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-    InitWindow(screenWidth, screenHeight, "Super Mario - Con Audio");
     InitWindow(screenWidth, screenHeight, "Super Mario - Modular");
     InitAudioManager();
     SetMusicState(state);
@@ -62,7 +61,7 @@ void Game::HandleInput() {
 void Game::Update(float dt) {
     if (state != PLAYING || lives <= 0) return;
 
-    player.Update(dt, ground, 500, -300, 200);
+    player.Update(dt, ground);
 
     for (Block& b : blocks) {
         b.Update(dt);
