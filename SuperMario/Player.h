@@ -11,12 +11,14 @@ public:
 
     bool isBig;
     bool onGround;
+    bool isDead; // Estado de muerte
 
     void LoadAssets();
     void SpawnSobre(Rectangle ground, int screenWidth);
     void Update(float dt, Rectangle ground);
     void Draw();
     void Grow();
+    void Die(); // Ejecuta animación de muerte
 
 private:
     Texture2D texture;

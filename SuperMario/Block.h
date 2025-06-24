@@ -24,13 +24,15 @@ public:
     void Update(float dt);
     void Draw();
 
-    //  Animación del bloque misterioso
     static void LoadMysteryTexture();
     static void UnloadMysteryTexture();
 
 private:
     static Texture2D mysteryTexture;
+    static Texture2D emptyTexture;     // ✅ textura del bloque vacío
     static bool textureLoaded;
+    static bool emptyLoaded;           // ✅ bandera de carga
+
     int animFrame = 0;
     float animTimer = 0.0f;
 };

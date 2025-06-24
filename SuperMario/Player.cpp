@@ -15,8 +15,8 @@ void Player::LoadAssets() {
     frameTimer = 0.0f;
     facingRight = true;
     isBig = false;
+    isDead = false;
 
-    // Inicializar físicas
     gravity = 1300.0f;
     jumpForce = 500.0f;
     moveSpeed = 200.0f;
@@ -44,8 +44,22 @@ void Player::Grow() {
     }
 }
 
+void Player::Die() {
+    if (!isDead) {
+        isDead = true;
+        velocity = { 0, -400 };
+        PlayDeathSound();
+    }
+}
+
 void Player::Update(float dt, Rectangle ground) {
-    // Movimiento horizontal
+    if (isDead) {
+        velocity.y += gravity * dt;
+        rect.y += velocity.y * dt;
+        UpdateAnimation(dt);
+        return;
+    }
+
     if (IsKeyDown(KEY_RIGHT)) {
         velocity.x = moveSpeed;
         facingRight = true;
@@ -54,35 +68,28 @@ void Player::Update(float dt, Rectangle ground) {
         velocity.x = -moveSpeed;
         facingRight = false;
     }
-    else {velocity.x = 0.0f;
-       
+    else {
+        velocity.x = 0.0f;
     }
 
-    // Salto
-   // Salto NES: cuanto más mantienes, más alto sube
     if ((IsKeyPressed(KEY_SPACE) || IsKeyPressed(KEY_UP)) && onGround) {
-        velocity.y = -jumpForce;      // Impulso hacia arriba
-        jumpHeld = true;              // Se marcó que está en salto largo
+        velocity.y = -jumpForce;
+        jumpHeld = true;
         onGround = false;
         PlayJumpSound();
     }
 
-    // Cortar salto si suelta la tecla mientras sube
     if (!IsKeyDown(KEY_SPACE) && !IsKeyDown(KEY_UP) && jumpHeld && velocity.y < 0) {
-        velocity.y *= jumpCutFactor;  // Recorte brusco de altura
+        velocity.y *= jumpCutFactor;
         jumpHeld = false;
     }
 
-
-    // Aplicar gravedad
     velocity.y += gravity * dt;
     if (velocity.y > maxFallSpeed) velocity.y = maxFallSpeed;
 
-    // Actualizar posición
     rect.x += velocity.x * dt;
     rect.y += velocity.y * dt;
 
-    // Colisión con el suelo
     if (rect.y + rect.height >= ground.y) {
         rect.y = ground.y - rect.height;
         velocity.y = 0;
@@ -96,7 +103,7 @@ void Player::Update(float dt, Rectangle ground) {
 }
 
 void Player::UpdateAnimation(float dt) {
-    if (rect.y > 1000) {
+    if (isDead) {
         frame = 4;
         return;
     }

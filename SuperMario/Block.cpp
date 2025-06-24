@@ -1,7 +1,9 @@
 #include "block.h"
 
 Texture2D Block::mysteryTexture = {};
+Texture2D Block::emptyTexture = {};
 bool Block::textureLoaded = false;
+bool Block::emptyLoaded = false;
 
 void Block::LoadMysteryTexture() {
     if (!textureLoaded) {
@@ -12,12 +14,26 @@ void Block::LoadMysteryTexture() {
             TraceLog(LOG_ERROR, "No se pudo cargar la textura del bloque misterioso.");
         }
     }
+
+    if (!emptyLoaded) {
+        emptyTexture = LoadTexture("C:/Users/OTERLOK/Desktop/mario/assets/sprites/blocks/overworld/emptyBlock.png");
+        emptyLoaded = true;
+
+        if (emptyTexture.id == 0) {
+            TraceLog(LOG_ERROR, "No se pudo cargar la textura del bloque vacío.");
+        }
+    }
 }
 
 void Block::UnloadMysteryTexture() {
     if (textureLoaded) {
         UnloadTexture(mysteryTexture);
         textureLoaded = false;
+    }
+
+    if (emptyLoaded) {
+        UnloadTexture(emptyTexture);
+        emptyLoaded = false;
     }
 }
 
@@ -79,20 +95,21 @@ void Block::Update(float dt) {
 }
 
 void Block::Draw() {
-    if ((type == MYSTERY || type == COIN || type == POWERUP) && textureLoaded) {
-        Rectangle src = { 16.0f * animFrame, 0, 16, 16 };
-        Rectangle dest = rect;
+    Rectangle dest = rect;
 
-        if (hit) {
-            DrawRectangleRec(dest, LIGHTGRAY);
+    if ((type == MYSTERY || type == COIN || type == POWERUP) && textureLoaded) {
+        if (hit && emptyLoaded) {
+            Rectangle src = { 0, 0, 16, 16 };
+            DrawTexturePro(emptyTexture, src, dest, { 0, 0 }, 0.0f, WHITE);
         }
         else {
+            Rectangle src = { 16.0f * animFrame, 0, 16, 16 };
             DrawTexturePro(mysteryTexture, src, dest, { 0, 0 }, 0.0f, WHITE);
         }
     }
     else {
         Color color = (type == COIN) ? YELLOW : ORANGE;
         if (hit) color = LIGHTGRAY;
-        DrawRectangleRec(rect, color);
+        DrawRectangleRec(dest, color);
     }
 }

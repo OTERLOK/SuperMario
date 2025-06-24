@@ -4,6 +4,8 @@ Game::Game() {
     screenWidth = 800;
     screenHeight = 450;
     state = MENU;
+    deathTimer = 0.0f;
+    deathTriggered = false;
 }
 
 void Game::Init() {
@@ -60,7 +62,19 @@ void Game::HandleInput() {
 }
 
 void Game::Update(float dt) {
-    if (state != PLAYING || lives <= 0) return;
+    if (state != PLAYING) return;
+
+    if (player.isDead) {
+        deathTimer += dt;
+        player.Update(dt, ground);
+
+        if (deathTimer >= 2.0f && !deathTriggered) {
+            state = GAME_OVER;
+            SetMusicState(state);
+            deathTriggered = true;
+        }
+        return;
+    }
 
     player.Update(dt, ground);
 
@@ -97,16 +111,17 @@ void Game::Update(float dt) {
                     player.velocity.y = -300;
                     g.active = false;
                     PlayKickSound();
-
                 }
                 else {
-                    if (player.isBig) player.isBig = false;
+                    if (player.isBig) {
+                        player.isBig = false;
+                    }
                     else {
                         lives--;
                         if (lives == 0) {
-                            state = GAME_OVER;
-                            SetMusicState(state); //  añadir música de GAME_OVER más adelante
-                            PlayDeathSound();
+                            player.Die();
+                            deathTimer = 0.0f;
+                            deathTriggered = false;
                         }
                     }
                     damageCooldown = true;
@@ -130,8 +145,10 @@ void Game::Update(float dt) {
 
     previousLives = lives;
 
-    Vector2 target = { player.rect.x + player.rect.width / 2,
-                       player.rect.y + player.rect.height / 2 };
+    Vector2 target = {
+        player.rect.x + player.rect.width / 2,
+        player.rect.y + player.rect.height / 2
+    };
     camera.target.x += (target.x - camera.target.x) * 0.1f;
     camera.target.y += (target.y - camera.target.y) * 0.1f;
 }

@@ -1,4 +1,4 @@
-#ifndef GAME_H
+﻿#ifndef GAME_H
 #define GAME_H
 
 #include "raylib.h"
@@ -26,6 +26,9 @@ private:
 
     bool damageCooldown;
     float damageTimer;
+
+    float deathTimer;         // ⏱️ tiempo desde que Mario murió
+    bool deathTriggered;      // ✅ evita múltiples transiciones a GAME_OVER
 
     Rectangle ground;
 
