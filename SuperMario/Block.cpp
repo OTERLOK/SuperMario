@@ -55,7 +55,7 @@ void Block::Init(float x, float y, BlockType t) {
     animFrame = 0;
     animTimer = 0.0f;
 
-    if (type == MYSTERY || type == COIN || type == POWERUP || type == FLOOR)
+    if (type == MYSTERY || type == COIN || type == POWERUP )
         LoadMysteryTexture();
 }
 

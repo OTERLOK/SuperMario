@@ -18,7 +18,7 @@ void Player::LoadAssets() {
     isDead = false;
 
     gravity = 1300.0f;
-    jumpForce = 500.0f;
+    jumpForce = 600.0f;
     moveSpeed = 200.0f;
     deceleration = 0.0f;
     maxFallSpeed = 900.0f;
