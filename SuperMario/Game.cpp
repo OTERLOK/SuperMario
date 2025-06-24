@@ -28,6 +28,7 @@ void Game::Init() {
 
     blocks.push_back(Block()); blocks.back().Init(250, 280, COIN);
     blocks.push_back(Block()); blocks.back().Init(300, 280, POWERUP);
+    blocks.push_back(Block()); blocks.back().Init(350, 280, MYSTERY);
 
     goombas.push_back(Goomba()); goombas.back().Init(500, ground.y - 28);
 }
