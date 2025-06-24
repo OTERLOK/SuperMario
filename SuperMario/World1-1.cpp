@@ -85,22 +85,28 @@ void CargarWorld1_1(
     }
 
     for (int y = 0; y < items.size(); y++) {
-        for (int x = 0; x < items[y].size(); x++) {
-            int id = items[y][x];
-            if (id == 249) {
-                Block b;
-                b.Init(x * tileSize, y * tileSize, COIN);
-                blocks.push_back(b);
-                platforms.push_back(b.rect);
-            }
-            else if (id == 297) {
-                Block b;
-                b.Init(x * tileSize, y * tileSize, POWERUP);
-                blocks.push_back(b);
-                platforms.push_back(b.rect);
-            }
+    for (int x = 0; x < items[y].size(); x++) {
+        int id = items[y][x];
+
+        Block b;
+
+        if (id == 144) {
+            b.Init(x * tileSize, y * tileSize, COIN);
         }
+        else if (id == 608) {
+            b.Init(x * tileSize, y * tileSize, POWERUP);
+        }
+        else if (id == 303) {
+            b.Init(x * tileSize, y * tileSize, MYSTERY);
+        }
+        else {
+            continue; // si no coincide con ningún tipo conocido, lo salteamos
+        }
+
+        blocks.push_back(b);
+        platforms.push_back(b.rect); // para que tenga colisión
     }
+}
 
     CargarLevelProperties("C:/Users/OTERLOK/Desktop/mario/assets/data/World1-1/World1-1.levelproperties", playerStart, cameraStart, backgroundColor);
 }
