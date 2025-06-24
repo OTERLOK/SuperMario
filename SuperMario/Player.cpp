@@ -43,6 +43,14 @@ void Player::Grow() {
         rect.y -= rect.height * 0.3f;
     }
 }
+void Player::Shrink() {
+    if (isBig) {
+        isBig = false;
+        rect.height /= 1.5f;
+        rect.y += rect.height * 0.3f;
+        PlayShrinkSound(); // 🔊 Reproduce el sonido desde AudioManager
+    }
+}
 
 void Player::Die() {
     if (!isDead) {

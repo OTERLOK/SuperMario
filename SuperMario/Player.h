@@ -19,6 +19,9 @@ public:
     void Draw();
     void Grow();
     void Die(); // Ejecuta animación de muerte
+    void Shrink();
+
+
 
 private:
     Texture2D texture;

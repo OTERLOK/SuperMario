@@ -9,6 +9,7 @@ static Sound powerupCollectSound;
 static Sound jumpSound;
 static Sound deathSound;
 static Sound kickSound;
+static Sound shrinkSound; 
 
 static GameState currentMusicState = (GameState)(-1);
 static bool audioReady = false;
@@ -29,6 +30,7 @@ void InitAudioManager() {
     powerupCollectSound = LoadSound(TextFormat("%spowerupcollect.wav", baseEffects));
     deathSound = LoadSound(TextFormat("%sdeath.wav", baseEffects));
     kickSound = LoadSound(TextFormat("%skick.wav", baseEffects)); // ✅ nuevo sonido
+    shrinkSound = LoadSound(TextFormat("%sshrink.wav", baseEffects));
 
     menuMusic = LoadMusicStream(TextFormat("%soverworld.wav", baseMusic));
     gameMusic = LoadMusicStream(TextFormat("%soverworld.wav", baseMusic));
@@ -50,6 +52,7 @@ void UnloadAudioManager() {
     UnloadSound(powerupCollectSound);
     UnloadSound(deathSound);
     UnloadSound(kickSound); //  descarga el kick
+    UnloadSound(shrinkSound); // ✅ descarga shrink
 
     CloseAudioDevice();
     audioReady = false;
@@ -61,6 +64,7 @@ void PlayPowerupCollectSound() { if (audioReady) PlaySound(powerupCollectSound);
 void PlayJumpSound() { if (audioReady) PlaySound(jumpSound); }
 void PlayDeathSound() { if (audioReady) PlaySound(deathSound); }
 void PlayKickSound() { if (audioReady) PlaySound(kickSound); }
+void PlayShrinkSound() { if (audioReady) PlaySound(shrinkSound); }
 
 void SetMusicState(GameState newState) {
     if (!audioReady || newState == currentMusicState) return;

@@ -19,7 +19,7 @@ void PlayPowerupCollectSound();
 void PlayJumpSound();
 void PlayDeathSound();
 void PlayKickSound(); // ✅ nueva función
-
+void PlayShrinkSound();
 
 void SetMusicState(GameState state);
 void UpdateMusic();

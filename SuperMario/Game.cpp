@@ -114,7 +114,8 @@ void Game::Update(float dt) {
                 }
                 else {
                     if (player.isBig) {
-                        player.isBig = false;
+                        player.Shrink();
+
                     }
                     else {
                         lives--;
