@@ -54,16 +54,8 @@ void Player::Update(float dt, Rectangle ground) {
         velocity.x = -moveSpeed;
         facingRight = false;
     }
-    else {
-        // Desaceleración suave
-        if (velocity.x > 0) {
-            velocity.x -= deceleration * dt;
-            if (velocity.x < 0) velocity.x = 0;
-        }
-        else if (velocity.x < 0) {
-            velocity.x += deceleration * dt;
-            if (velocity.x > 0) velocity.x = 0;
-        }
+    else {velocity.x = 0.0f;
+       
     }
 
     // Salto
