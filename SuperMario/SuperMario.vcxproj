@@ -206,6 +206,7 @@
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Coin.cpp" />
     <ClCompile Include="EnemyLogic.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Goomba.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mushroom.cpp" />
@@ -216,6 +217,7 @@
     <ClInclude Include="Block.h" />
     <ClInclude Include="Coin.h" />
     <ClInclude Include="EnemyLogic.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Goomba.h" />
     <ClInclude Include="Mushroom.h" />
     <ClInclude Include="Player.h" />
