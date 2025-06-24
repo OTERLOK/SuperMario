@@ -27,14 +27,13 @@ private:
     bool damageCooldown;
     float damageTimer;
 
-    float deathTimer;         // ⏱️ tiempo desde que Mario murió
-    bool deathTriggered;      // ✅ evita múltiples transiciones a GAME_OVER
+    float deathTimer;
+    bool deathTriggered;
 
-    Rectangle ground;
-
-    Player player;
     Camera2D camera;
+    Player player;
 
+    std::vector<Rectangle> platforms; // ✅ plataformas múltiples
     std::vector<Block> blocks;
     std::vector<CoinEffect> coins;
     std::vector<Mushroom> mushrooms;

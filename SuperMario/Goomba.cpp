@@ -28,25 +28,25 @@ void Goomba::Init(float x, float y) {
     crushTimer = 0.0f;
 }
 
-void Goomba::Update(float dt, Rectangle ground) {
+void Goomba::Update(float dt, std::vector<Rectangle>& platforms) {
     if (!active) return;
 
     if (crushed) {
         frame = 2;
         velocity.x = 0;
         crushTimer += dt;
-        if (crushTimer >= 10.2f) active = false; // Dura más tiempo visible
+        if (crushTimer >= 10.2f) active = false;
         return;
     }
 
     // Movimiento horizontal
     rect.x += velocity.x * dt;
 
-   
-    // Actualiza frame según dirección
+  
+    // Animación: alterna entre frame 0 y 1 mientras camina
     frameTimer += dt;
     if (frameTimer >= frameTime) {
-        frame = (velocity.x < 0) ? 0 : 1;
+        frame = (frame == 0) ? 1 : 0;
         frameTimer = 0.0f;
     }
 
@@ -55,10 +55,32 @@ void Goomba::Update(float dt, Rectangle ground) {
     if (velocity.y > maxFallSpeed) velocity.y = maxFallSpeed;
     rect.y += velocity.y * dt;
 
-    // Colisión con el suelo
-    if (rect.y + rect.height >= ground.y) {
-        rect.y = ground.y - rect.height;
-        velocity.y = 0;
+    // Colisión con plataformas
+    for (const Rectangle& p : platforms) {
+        if (CheckCollisionRecs(rect, p) &&
+            rect.y + rect.height <= p.y + 10 &&
+            velocity.y >= 0) {
+            rect.y = p.y - rect.height;
+            velocity.y = 0;
+            break;
+        }
+    }
+
+    // IA de borde: si no hay suelo al frente, da vuelta
+    bool onPlatform = false;
+    float probeX = velocity.x > 0 ? rect.x + rect.width + 1 : rect.x - 1;
+    float probeY = rect.y + rect.height + 1;
+    Rectangle probe = { probeX, probeY, 2, 2 };
+
+    for (const Rectangle& p : platforms) {
+        if (CheckCollisionRecs(probe, p)) {
+            onPlatform = true;
+            break;
+        }
+    }
+
+    if (!onPlatform) {
+        velocity.x *= -1;
     }
 }
 

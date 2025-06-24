@@ -60,7 +60,7 @@ void Player::Die() {
     }
 }
 
-void Player::Update(float dt, Rectangle ground) {
+void Player::Update(float dt, std::vector<Rectangle>& platforms) {
     if (isDead) {
         velocity.y += gravity * dt;
         rect.y += velocity.y * dt;
@@ -98,17 +98,21 @@ void Player::Update(float dt, Rectangle ground) {
     rect.x += velocity.x * dt;
     rect.y += velocity.y * dt;
 
-    if (rect.y + rect.height >= ground.y) {
-        rect.y = ground.y - rect.height;
-        velocity.y = 0;
-        onGround = true;
-    }
-    else {
-        onGround = false;
+    onGround = false;
+    for (const Rectangle& p : platforms) {
+        if (CheckCollisionRecs(rect, p) &&
+            rect.y + rect.height <= p.y + 10 &&
+            velocity.y >= 0) {
+            rect.y = p.y - rect.height;
+            velocity.y = 0;
+            onGround = true;
+            break;
+        }
     }
 
     UpdateAnimation(dt);
 }
+
 
 void Player::UpdateAnimation(float dt) {
     if (isDead) {

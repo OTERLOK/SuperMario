@@ -2,6 +2,7 @@
 #define GOOMBA_H
 
 #include "raylib.h"
+#include <vector>
 
 class Goomba {
 public:
@@ -10,7 +11,7 @@ public:
     bool crushed;
 
     void Init(float x, float y);
-    void Update(float dt, Rectangle ground);
+    void Update(float dt, std::vector<Rectangle>& platforms);
     void Crush();
     void Draw();
 

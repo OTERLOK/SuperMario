@@ -31,7 +31,7 @@ void Mushroom::Init(float x, float y) {
     LoadSprite(); //  se asegura de que la textura esté cargada
 }
 
-void Mushroom::Update(float dt, const Rectangle& ground) {
+void Mushroom::Update(float dt, std::vector<Rectangle>& platforms) {
     if (!active) return;
 
     if (emerging) {
@@ -47,9 +47,14 @@ void Mushroom::Update(float dt, const Rectangle& ground) {
     rect.x += velocity.x * dt;
     rect.y += velocity.y * dt;
 
-    if (CheckCollisionRecs(rect, ground)) {
-        rect.y = ground.y - rect.height;
-        velocity.y = 0;
+    for (const Rectangle& p : platforms) {
+        if (CheckCollisionRecs(rect, p) &&
+            rect.y + rect.height <= p.y + 10 &&
+            velocity.y >= 0) {
+            rect.y = p.y - rect.height;
+            velocity.y = 0;
+            break;
+        }
     }
 }
 

@@ -15,10 +15,12 @@ void Game::Init() {
     SetMusicState(state);
     SetTargetFPS(60);
 
-    ground = { 0, 400, 1600, 50 };
+    platforms.push_back({ 0, 400, 1600, 50 });
+    platforms.push_back({ 300, 320, 100, 20 });
+    platforms.push_back({ 500, 270, 100, 20 });
 
     player.isBig = false;
-    player.SpawnSobre(ground, screenWidth);
+    player.SpawnSobre(platforms[0], screenWidth);
 
     camera.offset = { screenWidth / 2.0f, screenHeight / 2.0f };
     camera.zoom = 1.0f;
@@ -32,7 +34,7 @@ void Game::Init() {
     blocks.push_back(Block()); blocks.back().Init(300, 280, POWERUP);
     blocks.push_back(Block()); blocks.back().Init(350, 280, MYSTERY);
 
-    goombas.push_back(Goomba()); goombas.back().Init(500, ground.y - 28);
+    goombas.push_back(Goomba()); goombas.back().Init(500, platforms[0].y - 28);
 }
 
 void Game::Run() {
@@ -66,8 +68,7 @@ void Game::Update(float dt) {
 
     if (player.isDead) {
         deathTimer += dt;
-        player.Update(dt, ground);
-
+        player.Update(dt, platforms);
         if (deathTimer >= 2.0f && !deathTriggered) {
             state = GAME_OVER;
             SetMusicState(state);
@@ -76,7 +77,7 @@ void Game::Update(float dt) {
         return;
     }
 
-    player.Update(dt, ground);
+    player.Update(dt, platforms);
 
     for (Block& b : blocks) {
         b.Update(dt);
@@ -90,8 +91,9 @@ void Game::Update(float dt) {
     }
 
     for (CoinEffect& c : coins) c.Update(dt);
+
     for (Mushroom& m : mushrooms) {
-        m.Update(dt, ground);
+        m.Update(dt, platforms);
         if (m.active && CheckCollisionRecs(player.rect, m.rect)) {
             m.active = false;
             player.Grow();
@@ -99,7 +101,7 @@ void Game::Update(float dt) {
         }
     }
 
-    for (Goomba& g : goombas) g.Update(dt, ground);
+    for (Goomba& g : goombas) g.Update(dt, platforms);
 
     if (!damageCooldown) {
         for (Goomba& g : goombas) {
@@ -115,7 +117,6 @@ void Game::Update(float dt) {
                 else {
                     if (player.isBig) {
                         player.Shrink();
-
                     }
                     else {
                         lives--;
@@ -141,7 +142,7 @@ void Game::Update(float dt) {
     }
 
     if (lives > 0 && lives < previousLives) {
-        player.SpawnSobre(ground, screenWidth);
+        player.SpawnSobre(platforms[0], screenWidth);
     }
 
     previousLives = lives;
@@ -164,7 +165,7 @@ void Game::Draw() {
     }
     else {
         BeginMode2D(camera);
-        DrawRectangleRec(ground, DARKGRAY);
+        for (const Rectangle& p : platforms) DrawRectangleRec(p, DARKGRAY);
         player.Draw();
         for (Block& b : blocks) b.Draw();
         for (CoinEffect& c : coins) c.Draw();

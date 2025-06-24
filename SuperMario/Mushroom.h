@@ -3,6 +3,7 @@
 #define MUSHROOM_H
 
 #include "raylib.h"
+#include <vector>
 
 class Mushroom {
 public:
@@ -13,7 +14,7 @@ public:
     float riseDistance;
 
     void Init(float x, float y);
-    void Update(float dt, const Rectangle& ground);
+    void Update(float dt, std::vector<Rectangle>& platforms);
     void Draw();
 
     static void LoadSprite();    // Carga la textura (una sola vez)

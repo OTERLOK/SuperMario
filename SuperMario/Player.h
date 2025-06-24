@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "raylib.h"
+#include <vector>
 
 class Player {
 public:
@@ -15,7 +16,7 @@ public:
 
     void LoadAssets();
     void SpawnSobre(Rectangle ground, int screenWidth);
-    void Update(float dt, Rectangle ground);
+    void Update(float dt, std::vector<Rectangle>& platforms);
     void Draw();
     void Grow();
     void Die(); // Ejecuta animación de muerte
