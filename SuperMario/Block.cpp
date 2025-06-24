@@ -2,26 +2,29 @@
 
 Texture2D Block::mysteryTexture = {};
 Texture2D Block::emptyTexture = {};
+Texture2D Block::floorTexture = {};
+
 bool Block::textureLoaded = false;
 bool Block::emptyLoaded = false;
+bool Block::floorLoaded = false;
 
 void Block::LoadMysteryTexture() {
     if (!textureLoaded) {
         mysteryTexture = LoadTexture("C:/Users/OTERLOK/Desktop/mario/assets/sprites/blocks/overworld/misteryBlock.png");
         textureLoaded = true;
-
-        if (mysteryTexture.id == 0) {
-            TraceLog(LOG_ERROR, "No se pudo cargar la textura del bloque misterioso.");
-        }
+        if (mysteryTexture.id == 0) TraceLog(LOG_ERROR, "No se pudo cargar misteryBlock.png");
     }
 
     if (!emptyLoaded) {
         emptyTexture = LoadTexture("C:/Users/OTERLOK/Desktop/mario/assets/sprites/blocks/overworld/emptyBlock.png");
         emptyLoaded = true;
+        if (emptyTexture.id == 0) TraceLog(LOG_ERROR, "No se pudo cargar emptyBlock.png");
+    }
 
-        if (emptyTexture.id == 0) {
-            TraceLog(LOG_ERROR, "No se pudo cargar la textura del bloque vacío.");
-        }
+    if (!floorLoaded) {
+        floorTexture = LoadTexture("C:/Users/OTERLOK/Desktop/mario/assets/sprites/scenery/overworld/floorbricks.png");
+        floorLoaded = true;
+        if (floorTexture.id == 0) TraceLog(LOG_ERROR, "No se pudo cargar block.png");
     }
 }
 
@@ -30,10 +33,13 @@ void Block::UnloadMysteryTexture() {
         UnloadTexture(mysteryTexture);
         textureLoaded = false;
     }
-
     if (emptyLoaded) {
         UnloadTexture(emptyTexture);
         emptyLoaded = false;
+    }
+    if (floorLoaded) {
+        UnloadTexture(floorTexture);
+        floorLoaded = false;
     }
 }
 
@@ -49,7 +55,7 @@ void Block::Init(float x, float y, BlockType t) {
     animFrame = 0;
     animTimer = 0.0f;
 
-    if (type == MYSTERY || type == COIN || type == POWERUP)
+    if (type == MYSTERY || type == COIN || type == POWERUP || type == FLOOR)
         LoadMysteryTexture();
 }
 
@@ -106,6 +112,10 @@ void Block::Draw() {
             Rectangle src = { 16.0f * animFrame, 0, 16, 16 };
             DrawTexturePro(mysteryTexture, src, dest, { 0, 0 }, 0.0f, WHITE);
         }
+    }
+    else if (type == FLOOR && floorLoaded) {
+        Rectangle src = { 0, 0, 16, 16 };
+        DrawTexturePro(floorTexture, src, dest, { 0, 0 }, 0.0f, WHITE);
     }
     else {
         Color color = (type == COIN) ? YELLOW : ORANGE;

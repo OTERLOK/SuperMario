@@ -15,27 +15,32 @@ void Game::Init() {
     SetMusicState(state);
     SetTargetFPS(60);
 
-    platforms.push_back({ 0, 400, 1600, 50 });
-    platforms.push_back({ 300, 320, 100, 20 });
-    platforms.push_back({ 500, 270, 100, 20 });
+    // Cargar el mundo 1-1 desde CSVs
+    platforms.clear();
+    blocks.clear();
+    goombas.clear();
+    mushrooms.clear();
+    coins.clear();
+
+    Vector2 playerStart;
+    Vector2 cameraStart;
+    Color backgroundColor;
+
+    CargarWorld1_1(platforms, blocks, goombas, mushrooms, coins, playerStart, cameraStart, backgroundColor);
 
     player.isBig = false;
-    player.SpawnSobre(platforms[0], screenWidth);
+    player.SpawnSobre({ 0, playerStart.y + player.rect.height, 0, 0 }, screenWidth);
 
     camera.offset = { screenWidth / 2.0f, screenHeight / 2.0f };
+    camera.target = cameraStart;
     camera.zoom = 1.0f;
 
     lives = 3;
     previousLives = lives;
     damageCooldown = false;
     damageTimer = 0.0f;
-
-    blocks.push_back(Block()); blocks.back().Init(250, 280, COIN);
-    blocks.push_back(Block()); blocks.back().Init(300, 280, POWERUP);
-    blocks.push_back(Block()); blocks.back().Init(350, 280, MYSTERY);
-
-    goombas.push_back(Goomba()); goombas.back().Init(500, platforms[0].y - 28);
 }
+
 
 void Game::Run() {
     while (!WindowShouldClose()) {

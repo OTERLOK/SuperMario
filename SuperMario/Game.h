@@ -8,6 +8,7 @@
 #include "mushroom.h"
 #include "goomba.h"
 #include "audioManager.h"
+#include "World1-1.h"
 #include <vector>
 
 class Game {

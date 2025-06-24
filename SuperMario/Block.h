@@ -6,7 +6,7 @@
 #include "mushroom.h"
 #include <vector>
 
-enum BlockType { EMPTY, COIN, POWERUP, MYSTERY };
+enum BlockType { EMPTY, COIN, POWERUP, MYSTERY ,FLOOR };
 
 class Block {
 public:
@@ -31,7 +31,9 @@ private:
     static Texture2D mysteryTexture;
     static Texture2D emptyTexture;     // ✅ textura del bloque vacío
     static bool textureLoaded;
-    static bool emptyLoaded;           // ✅ bandera de carga
+    static bool emptyLoaded;   
+    static Texture2D floorTexture;
+    static bool floorLoaded;// ✅ bandera de carga
 
     int animFrame = 0;
     float animTimer = 0.0f;
