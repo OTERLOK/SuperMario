@@ -49,7 +49,7 @@ void UnloadAudioManager() {
     UnloadSound(powerupAppearSound);
     UnloadSound(powerupCollectSound);
     UnloadSound(deathSound);
-    UnloadSound(kickSound); // ✅ descarga el kick
+    UnloadSound(kickSound); //  descarga el kick
 
     CloseAudioDevice();
     audioReady = false;
@@ -60,7 +60,7 @@ void PlayPowerupAppearSound() { if (audioReady) PlaySound(powerupAppearSound); }
 void PlayPowerupCollectSound() { if (audioReady) PlaySound(powerupCollectSound); }
 void PlayJumpSound() { if (audioReady) PlaySound(jumpSound); }
 void PlayDeathSound() { if (audioReady) PlaySound(deathSound); }
-void PlayKickSound() { if (audioReady) PlaySound(kickSound); } // ✅ función para usar en Game.cpp
+void PlayKickSound() { if (audioReady) PlaySound(kickSound); }
 
 void SetMusicState(GameState newState) {
     if (!audioReady || newState == currentMusicState) return;

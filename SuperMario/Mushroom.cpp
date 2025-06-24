@@ -28,7 +28,7 @@ void Mushroom::Init(float x, float y) {
     emerging = true;
     riseDistance = 0.0f;
 
-    LoadSprite(); // ✅ se asegura de que la textura esté cargada
+    LoadSprite(); //  se asegura de que la textura esté cargada
 }
 
 void Mushroom::Update(float dt, const Rectangle& ground) {
@@ -67,6 +67,6 @@ void Mushroom::Draw() {
         );
     }
     else {
-        DrawRectangleRec(rect, RED); // fallback visual
+        DrawRectangleRec(rect, RED); 
     }
 }

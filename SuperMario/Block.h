@@ -24,7 +24,7 @@ public:
     void Update(float dt);
     void Draw();
 
-    // ✅ Animación del bloque misterioso
+    //  Animación del bloque misterioso
     static void LoadMysteryTexture();
     static void UnloadMysteryTexture();
 

@@ -42,11 +42,7 @@ void Goomba::Update(float dt, Rectangle ground) {
     // Movimiento horizontal
     rect.x += velocity.x * dt;
 
-    // Cambia de dirección si choca con los bordes (opcional)
-    // if (rect.x <= 0 || rect.x + rect.width >= GetScreenWidth()) {
-    //     velocity.x *= -1;
-    // }
-
+   
     // Actualiza frame según dirección
     frameTimer += dt;
     if (frameTimer >= frameTime) {

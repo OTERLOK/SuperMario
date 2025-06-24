@@ -105,7 +105,7 @@ void Game::Update(float dt) {
                         lives--;
                         if (lives == 0) {
                             state = GAME_OVER;
-                            SetMusicState(state); // Si deseas añadir música de GAME_OVER más adelante
+                            SetMusicState(state); //  añadir música de GAME_OVER más adelante
                             PlayDeathSound();
                         }
                     }
