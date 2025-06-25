@@ -34,7 +34,7 @@ private:
     Camera2D camera;
     Player player;
 
-    std::vector<Rectangle> platforms; // ✅ plataformas múltiples
+    std::vector<Rectangle> platforms; // plataformas múltiples
     std::vector<Block> blocks;
     std::vector<CoinEffect> coins;
     std::vector<Mushroom> mushrooms;

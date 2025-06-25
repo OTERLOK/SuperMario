@@ -29,11 +29,11 @@ public:
 
 private:
     static Texture2D mysteryTexture;
-    static Texture2D emptyTexture;     // ✅ textura del bloque vacío
+    static Texture2D emptyTexture;     
     static bool textureLoaded;
     static bool emptyLoaded;   
     static Texture2D floorTexture;
-    static bool floorLoaded;// ✅ bandera de carga
+    static bool floorLoaded;
 
     int animFrame = 0;
     float animTimer = 0.0f;

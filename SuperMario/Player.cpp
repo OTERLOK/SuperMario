@@ -48,7 +48,7 @@ void Player::Shrink() {
         isBig = false;
         rect.height /= 1.5f;
         rect.y += rect.height * 0.3f;
-        PlayShrinkSound(); // 🔊 Reproduce el sonido desde AudioManager
+        PlayShrinkSound(); //Reproduce el sonido desde AudioManager
     }
 }
 

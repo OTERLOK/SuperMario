@@ -58,6 +58,6 @@ void CoinEffect::Draw() {
         DrawTexturePro(texture, source, dest, { 0, 0 }, 0.0f, WHITE);
     }
     else {
-        DrawCircleV(position, 6, GOLD); // fallback visual
+        DrawCircleV(position, 6, GOLD); 
     }
 }

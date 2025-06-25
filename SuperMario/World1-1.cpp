@@ -64,7 +64,7 @@ void CargarWorld1_1(
         for (int x = 0; x < foreground[y].size(); x++) {
             int id = foreground[y][x];
 
-            // El bloque clásico de piso (id 384)
+            // El bloque suelo (floor) (id 384)
             if (id == 384) {
                 Block b;
                 b.Init(x * tileSize, y * tileSize, FLOOR);
@@ -100,7 +100,7 @@ void CargarWorld1_1(
             b.Init(x * tileSize, y * tileSize, MYSTERY);
         }
         else {
-            continue; // si no coincide con ningún tipo conocido, lo salteamos
+            continue; // si no coincide con ningún tipo conocido, se salta
         }
 
         blocks.push_back(b);

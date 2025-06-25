@@ -51,8 +51,8 @@ void UnloadAudioManager() {
     UnloadSound(powerupAppearSound);
     UnloadSound(powerupCollectSound);
     UnloadSound(deathSound);
-    UnloadSound(kickSound); //  descarga el kick
-    UnloadSound(shrinkSound); // ✅ descarga shrink
+    UnloadSound(kickSound); 
+    UnloadSound(shrinkSound); 
 
     CloseAudioDevice();
     audioReady = false;
